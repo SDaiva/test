@@ -1,0 +1,21 @@
+vars:
+  docker_volume: db_data
+  docker_network: bridge
+  db_name: Assignment_database
+
+- name: "Launch mysql database container"
+  docker_container:
+    name: "{{ Assignment_database }}"
+    image: mysql:5.7
+  volumes:
+    - "{{ db_data }}:/var/lib/mysql:rw"
+  restart: true
+  networks:
+    - name: "{{ bridge }}"
+  alias:
+    - "{{ Assignment_database }}"
+    - env:
+      MYSQL_ROOT_PASSWORD: config('DB_PASSWORD')
+      MYSQL_DATABASE: config('DB_NAME')
+      MYSQL_USER: config('DB_USER')
+      MYSQL_PASSWORD: config('DB_PASSWORD')

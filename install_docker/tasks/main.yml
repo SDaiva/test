@@ -1,0 +1,12 @@
+- name: "run apt update"
+  apt:
+    name: '*'
+    state: latest
+
+- name: "install docker"
+  package:
+    name: docker
+    state: present
+    update_cache: yes
+
+    #https://nsirap.com/posts/048-ansible-install-docker-and-docker-compose/

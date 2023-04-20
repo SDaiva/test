@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - users
+  #  - install_docker #runs updated and installs docker
+   # - download_git_repository
+   # - run_mysql
+    #- run_python
+    #- restore_mysql

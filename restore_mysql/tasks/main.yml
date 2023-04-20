@@ -1,0 +1,14 @@
+name: Restore MySQL database from dump file
+become: true
+become_user: mysql #maybe team2_user?
+command: mysql -u root -p{{ mysql_root_password }} {{ Assignment_database }} < /var/lib/mysql:rw" #/path/to/local/directory/dumpfile.sql
+  
+  #Replace mysql_root_password with the password for the root MySQL user, and database_name with the name of the database you want to restore.
+
+#Run the playbook using the ansible-playbook command:
+
+ # ansible-playbook your_playbook.yml
+  
+  #Replace your_playbook.yml with the name of the playbook file you created.
+  
+  #Once the playbook has run successfully, the MySQL database should be restored from the dump file located on the GitHub repository.
